@@ -1,0 +1,11 @@
+<launch>
+
+<include file="$turtlesim_helper/launch/homework1.launch"/>
+
+ <group ns="homework2">
+  
+  <node pkg="homework2" name="talker" type="publisher.py"/>
+ 
+ </group>
+
+</launch>
