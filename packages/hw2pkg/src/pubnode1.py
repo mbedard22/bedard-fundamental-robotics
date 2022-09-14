@@ -1,4 +1,4 @@
-!/usr/bin/env python3
+#!/usr/bin/env python3
 
 import rospy
 from std_msgs.msg import String
@@ -19,5 +19,5 @@ if __name__ == '__main__':
         while not rospy.is_shutdown():
             t.talk()
             rate.sleep()
-        except rospy.ROSInterruptException:
-            pass
+    except rospy.ROSInterruptException:
+        pass
