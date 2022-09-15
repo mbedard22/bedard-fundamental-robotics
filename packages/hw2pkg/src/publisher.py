@@ -5,12 +5,20 @@ from std_msgs.msg import String
 
 class Talker:
     def __init__(self):
-        self.pub = rospy.Publisher('chatter', String, queue_size=10)
+        self.pub = rospy.Publisher('turtlesim/turtle1/cmd_vel', geometry_msgs/Twist, queue_size=10)
 
-    def talk(self):
-        hello_str = "hello world %s" % rospy.get_time()
-        rospy.loginfo(hello_str)
-        self.pub.publish(hello_str)
+    def forward(self):
+        
+        velocity_msg = Twist()
+        velocity_msg = {linear: {x: 1, y: 0, z: 0}}
+        self.pub.publish(velocity_msg)
+    
+    def turn(self:
+    
+        velocity_msg = Twist()
+        velocity_msg = {linear: {x: 0, y: 0, z: 1}}
+        self.pub.publish(velocity_msg)
+
 
 if __name__=='__main__':
         try:
@@ -18,7 +26,9 @@ if __name__=='__main__':
             t=Talker()
             rate=rospy.Rate(1)
             while not rospy.is_shutdown():
-                t.talk()
+                for i in range 3
+                t.forward()
+                t.turn()
                 rate.sleep()
 
         except rospy.ROSInterruptException:
