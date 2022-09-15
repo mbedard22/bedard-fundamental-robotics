@@ -1,10 +1,10 @@
 <launch>
 
-<include file="$turtlesim_helper/launch/turtlesim.launch"/>
+<include file="$(find turtlesim_helper)/launch/turtlesim.launch"/>
 
- <group ns="homework2">
+ <group ns="turtlesim">
   
-  <node pkg="homework2" name="talker" type="publisher.py"/>
+  <node pkg="hw2pkg" name="square" type="publisher.py"/>
  
  </group>
 
