@@ -1,35 +1,31 @@
 #!/usr/bin/env python3
 
 import rospy
-from std_msgs.msg import String
+from geometry_msgs.msg import Twist
 
-class Talker:
+class Square:
     def __init__(self):
-        self.pub = rospy.Publisher('turtlesim/turtle1/cmd_vel', geometry_msgs/Twist, queue_size=10)
+        self.pub = rospy.Publisher('/turtlesim/turtle1/cmd_vel', Twist, queue_size=10)
 
     def forward(self):
-        
         velocity_msg = Twist()
-        velocity_msg = {linear: {x: 1, y: 0, z: 0}}
+        velocity_msg = 
         self.pub.publish(velocity_msg)
     
-    def turn(self:
-    
+    def turn(self):
         velocity_msg = Twist()
-        velocity_msg = {linear: {x: 0, y: 0, z: 1}}
+        velocity_msg = 
         self.pub.publish(velocity_msg)
-
 
 if __name__=='__main__':
-        try:
-            rospy.init_node('talker',anonymous=True)
-            t=Talker()
-            rate=rospy.Rate(1)
-            while not rospy.is_shutdown():
-                for i in range 3
-                t.forward()
-                t.turn()
+    try:
+        rospy.init_node('square',anonymous=True)
+        s=Square()
+        rate=rospy.Rate(1)
+        while not rospy.is_shutdown():
+            for i in range (3):
+                s.forward()
+                s.turn()
                 rate.sleep()
-
-        except rospy.ROSInterruptException:
-            pass
+    except rospy.ROSInterruptException:
+        pass
