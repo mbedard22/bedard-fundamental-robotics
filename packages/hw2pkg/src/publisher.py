@@ -9,7 +9,7 @@ class Square:
 
     def forward(self):
         velocity_msg = Twist()
-        velocity_msg.linear.x = 5
+        velocity_msg.linear.x = 4
         velocity_msg.linear.y = 0
         velocity_msg.linear.z = 0
         velocity_msg.angular.x = 0
@@ -25,7 +25,7 @@ class Square:
         velocity_msg.linear.z = 0
         velocity_msg.angular.x = 0
         velocity_msg.angular.y = 0
-        velocity_msg.angular.z = 5
+        velocity_msg.angular.z = 1.56
         #rospy.loginfo(velocity_msg)
         self.pub.publish(velocity_msg)
 
@@ -35,11 +35,11 @@ if __name__=='__main__':
         s=Square()
         rate=rospy.Rate(1)
         while not rospy.is_shutdown():
+            rate.sleep()
             s.forward()
             rate.sleep()
             rate.sleep()
             s.turn()
             rate.sleep()
-    
     except rospy.ROSInterruptException:
         pass
