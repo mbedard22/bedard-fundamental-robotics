@@ -1,0 +1,14 @@
+<launch>
+
+<include file="$(find turtlesim_helper)/launch/turtlesim.launch"/>
+
+ <group ns="turtlesim">
+  
+  <node pkg="hw2pkg" name="square" type="publisher.py"/>
+  <node pkg="hw2pkg" name="my_node" type="hw3node.py"/>
+  <node pkg="rqt_graph" name="rqt_graph" type="rqt_graph" />
+  <node pkg="rostopic" name="rostopic" type="rostopic" output="screen" args="echo new_topic" />
+  
+ </group>
+
+</launch>
