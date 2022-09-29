@@ -7,7 +7,6 @@
   <node pkg="hw2pkg" name="square" type="publisher.py" />
   <node pkg="hw2pkg" name="my_node" type="hw3node.py" />
   <node pkg="hw2pkg" name="conversion" type="hw4node.py" />
-  <node pkg="rqt_graph" name="rqt_graph" type="rqt_graph" />
   <node pkg="rostopic" name="rostopic" type="rostopic" output="screen" args="echo outputhw4" /> 
  
  </group>
