@@ -8,8 +8,8 @@ from turtlesim.msg import Pose
 
 class conversion_node:
     def __init__(self):
-        if rospy.has_param("unit_convert"):
-            self.unit = rospy.get_param("unit_convert")
+        if rospy.has_param("/unit_convert"):
+            self.unit = rospy.get_param("/unit_convert")
         else:
             self.unit = "default"
 
@@ -19,13 +19,13 @@ class conversion_node:
         self.pub_units = rospy.Publisher("outputhw4", UnitsLabelled, queue_size = 10)
     
     def convert(self, msg):
-        if rospy.has_param("unit_convert"):
-            self.unit = rospy.get_param("unit_convert")
+        if rospy.has_param("/unit_convert"):
+            self.unit = rospy.get_param("/unit_convert")
         else:
             self.unit = "default"
     
         if(self.unit == "meters"):
-            self.pub_msg = msg.value
+            self.pub_msg.value = msg.value
             self.pub_units.publish(self.pub_msg)
         
         elif(self.unit == "feet"):
