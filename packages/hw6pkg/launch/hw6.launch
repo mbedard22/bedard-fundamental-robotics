@@ -1,12 +1,8 @@
 <launch>
-
- <group ns="odometry">
   
-  <node pkg="hw6pkg" name="odometry" type="hw6node.py"/>
+ <node pkg="hw6pkg" name="odometry" type="hw6node.py"/>
 
- </group>
-
-<include file="$(find odometry_hw)/launch/odom_hw.launch"/>
-<param name="output_to_file" type="string" value="true"/>
+ <include file="$(find odometry_hw)/launch/odom_hw.launch"/>
+ <param name="output_to_file" type="string" value="true"/>
 
 </launch>

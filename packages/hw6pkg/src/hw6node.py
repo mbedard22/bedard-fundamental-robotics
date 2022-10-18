@@ -16,8 +16,8 @@ class odometry:
         self.theta = 0
         self.deltas = (msg.dist_wheel_left + msg.dist_wheel_right) / 2
         self.deltat = (msg.dist_wheel_right - msg.dist_wheel_left) / .2
-        self.deltax = deltas * math.cos((self.theta + deltat) / 2)
-        self.deltay = deltas * math.sin((self.theta + deltat) / 2)
+        self.deltax = self.deltas * cos((self.theta + self.deltat) / 2)
+        self.deltay = self.deltas * sin((self.theta + self.deltat) / 2)
         
         self.x += self.deltax
         self.y += self.deltay

@@ -11,6 +11,6 @@
  
  </group>
 
- <param name="unit_convert" type="string" value="smoots"/>
+ <param name="unit_convert" type="string" value="feet"/>
 
 </launch>
