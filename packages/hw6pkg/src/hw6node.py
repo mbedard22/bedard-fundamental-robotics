@@ -8,16 +8,19 @@ from odometry_hw.msg import DistWheel
 
 class odometry:
     def __init__(self):
+        self.theta = 0
+        self.x = 0
+        self.y = 0
         self.pub_msg = Pose2D()
         rospy.Subscriber("dist_wheel", DistWheel, self.callback)
         self.pub_pose = rospy.Publisher("pose", Pose2D, queue_size = 10)
     
     def callback(self, msg):
-        self.theta = 0
+
         self.deltas = (msg.dist_wheel_left + msg.dist_wheel_right) / 2
-        self.deltat = (msg.dist_wheel_right - msg.dist_wheel_left) / .2
-        self.deltax = self.deltas * cos((self.theta + self.deltat) / 2)
-        self.deltay = self.deltas * sin((self.theta + self.deltat) / 2)
+        self.deltat = (msg.dist_wheel_right - msg.dist_wheel_left) / 0.1
+        self.deltax = self.deltas * cos(self.theta + (self.deltat / 2))
+        self.deltay = self.deltas * sin(self.theta + (self.deltat / 2))
         
         self.x += self.deltax
         self.y += self.deltay
