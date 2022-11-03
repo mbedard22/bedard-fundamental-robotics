@@ -23,14 +23,15 @@ class ImageCropper:
         image_hsv = cv2.cvtColor(cv_cropped, cv2.COLOR_BGR2HSV)
         image_white = cv2.inRange(image_hsv,(30,0,155),(255,100,255))
         kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3,3))
+        kernel2 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7,7))
         white_erode = cv2.erode(image_white, kernel)
-        white_dilate = cv2.dilate(white_erode, kernel)
+        white_dilate = cv2.dilate(image_white, kernel2)
         output_white = self.bridge.cv2_to_imgmsg(white_dilate, "mono8")
         self.pub_white.publish(output_white)
 
         image_yellow = cv2.inRange(image_hsv,(25,100,100),(50,255,255))
-        yellow_erode = cv2.erode(image_yellow, kernel)
-        yellow_dilate = cv2.dilate(yellow_erode, kernel)
+ #       yellow_erode = cv2.erode(image_yellow, kernel)
+        yellow_dilate = cv2.dilate(image_yellow, kernel2)
         ros_yellow = self.bridge.cv2_to_imgmsg(yellow_dilate, "mono8")
         self.pub_yellow.publish(ros_yellow)
 

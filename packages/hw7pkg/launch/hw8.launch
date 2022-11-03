@@ -3,6 +3,6 @@
  <node pkg="hw7pkg" name="my_cvnode" type="cvnode.py"/>
  <node pkg="image_processing_hw" name="puball" type="image_pub_all.py"/>
  <node pkg="rqt_image_view" type="rqt_image_view" name="image_view_edges" args="/image_edges"/>
- <node pkg="rqt_image_view" type="rqt_image_view" name="image_edges_white" args="/image_lines_white"/>
- <node pkg="rqt_image_view" type="rqt_image_view" name="image_edges_yellow" args="/image_lines_yellow"/>
+ <node pkg="rqt_image_view" type="rqt_image_view" name="image_lines_white" args="/image_lines_white"/>
+ <node pkg="rqt_image_view" type="rqt_image_view" name="image_lines_yellow" args="/image_lines_yellow"/>
 </launch>
