@@ -13,5 +13,5 @@ def fib_client(x):
         print("Service call failed: %s" %e)
 
 if __name__=="__main__":
-    print fib_client(3)
-    print fib_client(15)
+    fib_client(3)
+    fib_client(15)
