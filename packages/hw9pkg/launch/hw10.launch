@@ -1,0 +1,7 @@
+<launch>
+ <node pkg="hw9pkg" name="hw10node" type="hw10node.py"/>
+ <node pkg="rqt_console" name="rqt_console" type="rqt_console"/>
+ <include file="$(find example_service)/launch/fibonacci.launch"/>
+ <include file="$(find example_action_server)/launch/fibonacci.launch"/>
+</launch>
+ 
